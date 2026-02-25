@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jsx的小练习</title>
+</head>
+<body>
+    <!--准备好一个容器-->
+    <div id="test"></div>
+    <!--引入react相关的js文件-->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        // 1.创建虚拟dom
+        const vdom = (
+            <div>
+                <h1>前端框架列表</h1>
+                <ul>
+                    <li>React</li>
+                    <li>Vue</li>
+                    <li>Angular</li>
+                </ul>    
+            </div>
+        )
+        // 2.渲染虚拟dom到页面
+        ReactDOM.render(vdom,document.getElementById('test'))
+    </script>
+</body>
+</html>
