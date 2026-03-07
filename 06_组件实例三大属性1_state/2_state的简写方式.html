@@ -16,18 +16,15 @@
     <script type="text/babel">
        //创建类式组件
         class Weather extends React.Component {
-            changeWeather() {
-                const {isHot,wind} = this.state
-                this.setState({isHot:!isHot})
-            }
-            constructor(props) {
-                super(props)
-                this.state = {isHot: false, wind: "大风"}
-                this.changeWeather = this.changeWeather.bind(this)
-            }
+            state = {isHot: false, wind: "大风"}
             render() {  
                 const {isHot, wind} = this.state
                 return <h2 onClick={this.changeWeather}>天气很{isHot?"炎热":"凉爽"},今天有{wind}</h2>
+            }
+
+            changeWeather = () => {
+                const {isHot,wind} = this.state
+                this.setState({isHot:!isHot})
             }
             
         }
