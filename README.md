@@ -1,0 +1,26 @@
+# React 基础学习项目
+
+这是一个用于学习 React 基础知识的项目，包含了从入门到组件开发的示例代码。
+
+## 目录结构
+
+- **01_hello_react**: React 入门示例。
+- **02_虚拟dom的两种创建方式**: 演示使用 JSX 和原生 JS 创建虚拟 DOM 的区别。
+- **03_jsx语法规则**: 学习 JSX 的基本语法规则。
+- **04_jsx的小练习**: 练习如何使用 JSX 渲染数组数据。
+- **05_React中创建组件**: 学习函数式组件和类式组件的创建方法。
+- **06_组件实例三大属性1_state**: 深入理解组件的 `state` 属性及其更新。
+- **js**: 存放项目依赖的 React、ReactDOM 和 Babel 库文件。
+- **复习**: JavaScript 基础知识复习，包括 ES6 类（Class）和原生事件绑定。
+
+## 核心库说明
+
+1. `react.development.js`: React 核心库。
+2. `react-dom.development.js`: React 操作 DOM 的扩展库。
+3. `babel.min.js`: 将 JSX 转换为普通 JS 的编译器。
+
+## 学习建议
+
+- 建议按照文件夹编号顺序进行学习。
+- 在每个 HTML 文件中，关注 `<script type="text/babel">` 内部的代码逻辑。
+- 复习目录中的内容是学习 React 的重要前提。
