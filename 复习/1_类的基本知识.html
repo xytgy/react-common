@@ -14,12 +14,15 @@
     <script src="../js/babel.min.js"></script>
     <script type="text/javascript">
         class Person {
-
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
         }
-
-        const p1 = new Person()
-
+        const p1 = new Person("tom", 19)
+        const p2 = new Person("jerry", 20)
         console.log(p1)
+        console.log(p2)
     </script>
 </body>
 </html>
