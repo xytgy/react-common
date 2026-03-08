@@ -13,12 +13,14 @@
     <script type="text/babel">
         //创建组件
         class Demo extends React.Component{
+            state = {isHot: false, wind: "大风"}
             render(){
+                const {isHot, wind} = this.state
                 return(
                     <div>
-                        <input ref={ref => this.inputRef = ref} type="text" placeholder="点击按钮提示数据"/>&nbsp;
+                        <div>当前天气很{isHot?"炎热":"凉爽"},今天有{wind}</div>
+                        <input ref={(ref) => {this.inputRef = ref;console.log("@", ref)}} type="text" placeholder="点击按钮提示数据"/>&nbsp;
                         <button onClick={this.showData}>点我提示数据</button>&nbsp;
-                        <input ref={ref => this.inputRef2 = ref} onBlur={this.showData2} type="text" placeholder="失去焦点提示数据"/>
                     </div>
                 )
             }
