@@ -28,10 +28,9 @@
                 )
             }
            }
-
-        ReactDOM.render(<Person name="张三" age={18}/>, document.getElementById("test"))
-        ReactDOM.render(<Person name="李四" age={20}/>, document.getElementById("test1"))
-        ReactDOM.render(<Person name="王五" age={22}/>, document.getElementById("test2"))
+           const p = {name: "张三", age : 10}
+        ReactDOM.render(<Person {...p}/>, document.getElementById("test"))
+        
         
     </script>
 </body>
