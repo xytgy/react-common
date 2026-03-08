@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2_props的基本使用</title>
+    <title>3_函数式组件使用props</title>
 </head>
 <body>
     <!--准备好一个容器-->
@@ -15,6 +15,7 @@
     <script src="../js/react.development.js"></script>
     <script src="../js/react-dom.development.js"></script>
     <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
     <script type="text/babel">
        //创建类式组件
        class Person extends React.Component {
@@ -27,12 +28,24 @@
                     </ul>
                 )
             }
+            //对props进行限制
+            static propTypes = {
+                name: PropTypes.string.isRequired, //限制name必须为字符串类型
+                age: PropTypes.number, //限制age必须为数值类型
+                speak: PropTypes.func //限制speak必须为函数类型
+            }
+
+            //对props进行默认值设置
+            static defaultProps = {
+                age: 18 //如果组件标签没有传递age属性,则默认值为18
+            }
            }
-        ReactDOM.render(<Person name="李四" age={18}/>, document.getElementById("test1"))
-        ReactDOM.render(<Person name="王五" age={20}/>, document.getElementById("test2"))
+
+           function speak(){
+            console.log("我是一个人")
+           }
            const p = {name: "张三", age : 10}
-           //ReactDOM.render(<Person name={p.name} age={p.age}/>, document.getElementById("test2"))
-        ReactDOM.render(<Person {...p}/>, document.getElementById("test"))
+        ReactDOM.render(<Person {...p} speak={speak}/>, document.getElementById("test"))
     </script>
 </body>
-</html> 
+</html>

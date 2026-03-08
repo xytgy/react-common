@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_对props进行限制</title>
+</head>
+<body>
+    <!--准备好一个容器-->
+    
+    <div id="test"></div>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <!--引入react相关的js文件-->
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script src="../js/prop-types.js"></script>
+    <script type="text/babel">
+       //创建类式组件
+       class Person extends React.Component {
+        //构造器是否接收props,是否传递给super
+        //取决于是否要在构造器中通过this使用props
+        constructor(props){
+            super(props)
+        }
+            render() {
+                const {name, age} = this.props
+                return (
+                    <ul>
+                        <li>姓名：{name}</li>
+                        <li>年龄：{age}</li>
+                    </ul>
+                )
+            }
+            //对props进行限制
+            static propTypes = {
+                name: PropTypes.string.isRequired, //限制name必须为字符串类型
+                age: PropTypes.number, //限制age必须为数值类型
+                speak: PropTypes.func //限制speak必须为函数类型
+            }
+
+            //对props进行默认值设置
+            static defaultProps = {
+                age: 18 //如果组件标签没有传递age属性,则默认值为18
+            }
+           }
+
+           function speak(){
+            console.log("我是一个人")
+           }
+           const p = {name: "张三", age : 10}
+        ReactDOM.render(<Person {...p} speak={speak}/>, document.getElementById("test"))
+    </script>
+</body>
+</html>
