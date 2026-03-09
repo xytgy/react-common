@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2_react生命周期(旧)</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        //创建组件
+        class Count extends React.Component{
+            constructor(props) {
+                super(props)
+                //初始化状态
+                this.state = {
+                    count: 0
+                }
+                console.log("Count-----constructor")
+            }
+            
+            //加1按钮的回调
+            add = () => {
+                const {count} = this.state
+                this.setState({count: count + 1})
+            }
+            componentWillMount() {
+                console.log("Count-----componentWillMount")
+            }
+            componentDidMount() {
+                console.log("Count-----componentDidMount")
+            }
+            render() {
+                console.log("Count-----render")
+                return(
+                    <div>
+                        <h2>当前计数: {this.state.count}</h2>
+                        <button onClick={this.add}>点我+1</button>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(<Count/>,document.getElementById("test"))
+    </script>
+</body>
+</html>
