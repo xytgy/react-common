@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_引出生命周期</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+
+    <script type="text/babel">
+        class Life extends React.Component{
+            render() {
+                return(
+                    <div>
+                        <h2>React学不会怎么办?</h2>
+                        <button onClick={this.death}>请联系管理员</button>
+                    </div>
+                )
+            }
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById("test"))
+            }
+        }
+        ReactDOM.render(<Life/>,document.getElementById("test"))
+    </script>
+</body>
+</html>
