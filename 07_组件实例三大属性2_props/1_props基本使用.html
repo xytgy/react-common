@@ -30,8 +30,9 @@
            }
         ReactDOM.render(<Person name="李四" age={18}/>, document.getElementById("test1"))
         ReactDOM.render(<Person name="王五" age={20}/>, document.getElementById("test2"))
-           const p = {name: "张三", age : 10}
-           //ReactDOM.render(<Person name={p.name} age={p.age}/>, document.getElementById("test2"))
+        const p = {name: "张三", age : 10}
+        //ReactDOM.render(<Person name={p.name} age={p.age}/>, document.getElementById("test2"))
+        //语法糖：...p 表示把p对象中的所有属性都传递给Person组件
         ReactDOM.render(<Person {...p}/>, document.getElementById("test"))
     </script>
 </body>
