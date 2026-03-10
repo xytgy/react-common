@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3_react生命周期(新)</title>
+</head>
+<body>
+    <div id="test"></div>
+    <script src="../js/react.development.js"></script>
+    <script src="../js/react-dom.development.js"></script>
+    <script src="../js/babel.min.js"></script>
+    <script type="text/babel">
+        //创建组件
+        class Count extends React.Component{
+            //构造器
+            constructor(props) {
+                super(props)
+                //初始化状态
+                this.state = {
+                    count: 0
+                }
+                console.log("Count-----constructor")
+            }
+            
+            //加1按钮的回调
+            add = () => {
+                const {count} = this.state
+                this.setState({count: count + 1})
+            }
+
+            //卸载组件的回调
+            death = () => {
+                ReactDOM.unmountComponentAtNode(document.getElementById("test"))
+            }
+
+            //强制更新组件
+            forceUpdate = () => {
+                this.forceUpdate()
+            }
+
+            //组件将要挂载的钩子
+            componentWillMount() {
+                console.log("Count-----componentWillMount")
+            }
+
+            //组件挂载完成的钩子
+            componentDidMount() {
+                console.log("Count-----componentDidMount")
+            }
+
+            //组件将要卸载的钩子
+            componentWillUnmount() {
+                console.log("Count-----componentWillUnmount")
+            }
+
+            //组件控制更新的阀门
+            shouldComponentUpdate() {
+                console.log("Count-----shouldComponentUpdate")
+                return true
+            }
+            
+            //组件将要更新的钩子
+            componentWillUpdate() {
+                console.log("Count-----componentWillUpdate")
+            }
+
+            //组件更新完成的钩子
+            componentDidUpdate() {
+                console.log("Count-----componentDidUpdate")
+            }
+
+            render() {
+                console.log("Count-----render")
+                return(
+                    <div>
+                        <h2>当前计数: {this.state.count}</h2>
+                        <button onClick={this.add}>点我+1</button>
+                        <button onClick={this.death}>卸载组件</button>
+                    </div>
+                )
+            }
+        }
+        
+
+        ReactDOM.render(<Count/>,document.getElementById("test"))
+    </script>
+</body>
+</html>
