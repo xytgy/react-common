@@ -7,9 +7,9 @@
 </head>
 <body>
     <div id="test"></div>
-    <script src="../js/react.development.js"></script>
-    <script src="../js/react-dom.development.js"></script>
-    <script src="../js/babel.min.js"></script>
+    <script src="../js/17.0.1/react.development.js"></script>
+    <script src="../js/17.0.1/react-dom.development.js"></script>
+    <script src="../js/17.0.1/babel.min.js"></script>
     <script type="text/babel">
         //创建组件
         class Count extends React.Component{
@@ -61,7 +61,7 @@
             }
             
             //组件将要更新的钩子
-            componentWillUpdate() {
+            UNSAFE_componentWillUpdate() {
                 console.log("Count-----componentWillUpdate")
             }
 
@@ -101,7 +101,7 @@
             }
         }
         
-        //子组件B
+        //子组件B 
         class B extends React.Component {
             //组件将要接收新属性的钩子
             componentWillReceiveProps(newProps) {
@@ -114,7 +114,7 @@
             }
 
             //组件将要更新的钩子
-            componentWillUpdate() {
+            UNSAFE_componentWillUpdate() {
                 console.log("B-----componentWillUpdate")
             }
             //组件更新完成的钩子
@@ -131,7 +131,7 @@
         }
         
         
-        ReactDOM.render(<A/>,document.getElementById("test"))
+        ReactDOM.render(<Count/>,document.getElementById("test"))
     </script>
 </body>
 </html>
